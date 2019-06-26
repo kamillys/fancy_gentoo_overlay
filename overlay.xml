@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<repositories version="1.0">
+<repo priority="50" status="unofficial" quality="experimental">
+	<name>fancy_gentoo_overlay</name>
+	<description>Edoceo profile and Packages</description>
+	<homepage>https://github.com/kamillys/fancy_gentoo_overlay</homepage>
+	<owner>
+		<email>kamillys@gmail.com</email>
+		<name>kamil</name>
+	</owner>
+	<source type="git">git://github.com/kamillys/fancy_gentoo_overlay.git</source>
+	<source type="git">https://github.com/kamillys/fancy_gentoo_overlay.git</source>
+	<feed>https://github.com/kamillys/fancy_gentoo_overlay/commits/master.atom</feed>
+</repo>
+</repositories>
