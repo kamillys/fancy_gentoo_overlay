@@ -16,7 +16,6 @@ PV_MODULES="361.$(ver_cut 2-3)"
 PV_BUILD=$(ver_cut 4)
 MY_P="${MY_PN}-${MY_PV}-${PV_BUILD}"
 VMWARE_FUSION_VER="11.1.0/13668589" # https://softwareupdate.vmware.com/cds/vmw-desktop/fusion/
-BASE_URI="https://softwareupdate.vmware.com/cds/vmw-desktop/player/${MY_PV}/${PV_BUILD}/linux/core/"
 SYSTEMD_UNITS_TAG="gentoo-02"
 
 DESCRIPTION="Emulate a complete PC without the performance overhead of most emulators"
