@@ -24,6 +24,7 @@ IUSE="cdda +dbus debug ipod mms moodbar mtp phonon pulseaudio system-taglib tida
 
 REQUIRED_USE="
 	udisks? ( dbus )
+	moodbar? ( gstreamer )
 "
 
 BDEPEND="
@@ -47,7 +48,7 @@ COMMON_DEPEND="
 	dev-qt/qtwidgets:5
 	media-libs/alsa-lib
 	media-libs/chromaprint:=
-	media-libs/gstreamer:1.0
+	gstreamer? ( media-libs/gstreamer:1.0 )
 	media-libs/gst-plugins-base:1.0
 	>=media-libs/libmygpo-qt-1.0.9[qt5(+)]
 	sys-libs/zlib
@@ -65,9 +66,9 @@ COMMON_DEPEND="
 "
 # Note: sqlite driver of dev-qt/qtsql is bundled, so no sqlite use is required; check if this can be overcome someway;
 RDEPEND="${COMMON_DEPEND}
-	media-plugins/gst-plugins-meta:1.0
-	media-plugins/gst-plugins-soup:1.0
-	media-plugins/gst-plugins-taglib:1.0
+	gstreamer ? ( media-plugins/gst-plugins-meta:1.0 )
+	gstreamer ? ( media-plugins/gst-plugins-soup:1.0 )
+	gstreamer ? ( media-plugins/gst-plugins-taglib:1.0 )
 	mms? ( media-plugins/gst-plugins-libmms:1.0 )
 	mtp? ( gnome-base/gvfs[mtp] )
 	udisks? ( sys-fs/udisks:2 )
@@ -100,6 +101,7 @@ src_configure() {
 		-DLINGUAS="$(l10n_get_locales)"
 		-DENABLE_AUDIOCD="$(usex cdda)"
 		-DCMAKE_DISABLE_FIND_PACKAGE_Qt5DBus=$(usex !dbus)
+		-DENABLE_GSTREAMER="$(usex gstreamer)"
 		-DENABLE_LIBGPOD="$(usex ipod)"
 		-DENABLE_LIBMTP="$(usex mtp)"
 		-DENABLE_LIBPULSE="$(usex pulseaudio)"
