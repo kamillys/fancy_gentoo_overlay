@@ -20,7 +20,7 @@ fi
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="cdda +dbus debug ipod mms moodbar mtp phonon pulseaudio system-taglib tidal +udisks vlc xine"
+IUSE="cdda +dbus debug gstreamer ipod mms moodbar mtp phonon pulseaudio system-taglib tidal +udisks vlc xine"
 
 REQUIRED_USE="
 	udisks? ( dbus )
@@ -66,9 +66,9 @@ COMMON_DEPEND="
 "
 # Note: sqlite driver of dev-qt/qtsql is bundled, so no sqlite use is required; check if this can be overcome someway;
 RDEPEND="${COMMON_DEPEND}
-	gstreamer ? ( media-plugins/gst-plugins-meta:1.0 )
-	gstreamer ? ( media-plugins/gst-plugins-soup:1.0 )
-	gstreamer ? ( media-plugins/gst-plugins-taglib:1.0 )
+	gstreamer? ( media-plugins/gst-plugins-meta:1.0 )
+	gstreamer? ( media-plugins/gst-plugins-soup:1.0 )
+	gstreamer? ( media-plugins/gst-plugins-taglib:1.0 )
 	mms? ( media-plugins/gst-plugins-libmms:1.0 )
 	mtp? ( gnome-base/gvfs[mtp] )
 	udisks? ( sys-fs/udisks:2 )
