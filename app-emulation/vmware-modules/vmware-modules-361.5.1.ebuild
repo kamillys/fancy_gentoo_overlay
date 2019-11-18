@@ -59,7 +59,7 @@ src_unpack() {
 
 src_prepare() {
 	# from https://github.com/mkubecek/vmware-host-modules/tree/workstation-15.0.4
-	kernel_is ge 4 9 0 && epatch "${FILESDIR}/4.09-00-vmnet-use-standard-definition-of-PCI_VENDOR_ID_VMWAR.patch"
+	#kernel_is ge 4 9 0 && epatch "${FILESDIR}/4.09-00-vmnet-use-standard-definition-of-PCI_VENDOR_ID_VMWAR.patch"
 	kernel_is ge 4 10 0 && epatch "${FILESDIR}/4.10-00-vmnet-use-standard-definition-of-PCI_VENDOR_ID_VMWAR.patch"
 	kernel_is ge 4 12 0 && epatch "${FILESDIR}/4.12-00-vmmon-use-standard-definition-of-MSR_MISC_FEATURES_E.patch"
 	kernel_is ge 4 13 0 && epatch "${FILESDIR}/4.13-00-vmmon-use-standard-definition-of-CR3_PCID_MASK-if-av.patch"
@@ -68,10 +68,10 @@ src_prepare() {
 	epatch "${FILESDIR}/01-vmmon-fix-always_inline-attribute-usage.patch"
 	epatch "${FILESDIR}/02-vmmon-fix-indirect-call-with-retpoline-build.patch"
 	epatch "${FILESDIR}/03-vmmon-check-presence-of-file_operations-poll.patch"
-	epatch "${FILESDIR}/04-modules-replace-SUBDIRS-with-M.patch"
+	#epatch "${FILESDIR}/04-modules-replace-SUBDIRS-with-M.patch"
 	epatch "${FILESDIR}/06-vmmon-bring-back-the-do_gettimeofday-helper.patch"
-	epatch "${FILESDIR}/08-vmmon-use-KERNEL_DS-rather-than-get_ds.patch"
-	epatch "${FILESDIR}/09-vmmon-fix-return-type-of-vm_operations_struct-fault-.patch"
+	#epatch "${FILESDIR}/08-vmmon-use-KERNEL_DS-rather-than-get_ds.patch"
+	#epatch "${FILESDIR}/09-vmmon-fix-return-type-of-vm_operations_struct-fault-.patch"
 
 	# decouple the kernel include dir from the running kernel version: https://github.com/stefantalpalaru/gentoo-overlay/issues/17
 	sed -i -e "s%HEADER_DIR = /lib/modules/\$(VM_UNAME)/build/include%HEADER_DIR = ${KERNEL_DIR}/include%" */Makefile || die "sed failed"
